@@ -1,0 +1,4 @@
+services:
+#    continents.example:
+#        class: ContinentsBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

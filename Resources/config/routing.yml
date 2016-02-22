@@ -1,0 +1,3 @@
+continents_homepage:
+    path:     /
+    defaults: { _controller: ContinentsBundle:Default:index }
