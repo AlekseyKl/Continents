@@ -1,7 +1,80 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	Start continents 2!<br>
-	{{ window }}
 
+	<!-- {{ window }} -->
+	test 1
+	<div class="top_ins_1">
+		<div class="title_1">
+			С момента Вашего рождения<br/>
+			<i>(25 сентября 1983 года)<br/><?=$differenceInSeconds?></i>
+		</div>
+		<div class="continent_block_cover">
+			<div class="continent_block">
+				Северо-Американский континет <b>сдвинуля на юг</b> на
+				<div id="eurasia_cont_num">
+					
+				</div>
+				<div id="eurasia_cont_line" class="line_block">
+				
+				</div>
+			</div>	
+		<div>
+		<div class="continent_block_cover">
+			<div class="continent_block">
+				Северо-Американский континет <b>сдвинуля на юг</b> на
+				<div id="n_am_cont_num">
+					
+				</div>
+				<div id="n_am_cont_line" class="line_block">
+				
+				</div>
+			</div>	
+		<div>
+		<div class="continent_block_cover">
+			<div class="continent_block">
+				Северо-Американский континет <b>сдвинуля на юг</b> на
+				<div id="s_am_cont_num">
+					
+				</div>
+				<div id="s_am_cont_line" class="line_block">
+				
+				</div>
+			</div>	
+		<div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+
+	<script>
+					
+		var eurasia_score = 234.43540000666;
+		var n_am_score = 234.43540000666;
+		var s_am_score = 234.43540000666;
+		
+		var eurasia_mmInSec = <?=$continentsData["eurasia"]["mm_in_sec"]?>/1000000;
+		var n_am_mmInSec = <?=$continentsData["noth_america"]["mm_in_sec"]?>/1000000;
+		var s_am_mmInSec = <?=$continentsData["south_america"]["mm_in_sec"]?>/1000000;
+		
+		$(document).ready(function(){
+			setInterval(tick, 1000);
+
+			$('#eurasia_cont_line').html('<div style="width: 340px;height: 8px; background-color: #ff0000;"></div>');
+			$('#n_am_cont_line').html('<div style="width: 340px;height: 8px; background-color: #ff0000;"></div>');
+			$('#s_am_cont_line').html('<div style="width: 340px;height: 8px; background-color: #ff0000;"></div>');
+		});
+		
+		function tick(){
+			//console.log("tick");
+			eurasia_score += eurasia_mmInSec;
+			n_am_score += n_am_mmInSec;
+			s_am_score += s_am_mmInSec;
+			//console.log(test+" : "+eu_score);
+			$('#eurasia_cont_num').html(eurasia_score+' мм');
+			$('#n_am_cont_num').html(n_am_score+' мм');
+			$('#s_am_cont_num').html(s_am_score+' мм');
+		}
+	</script>
+	
 {% endblock %}
